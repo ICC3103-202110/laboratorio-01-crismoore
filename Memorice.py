@@ -19,6 +19,22 @@ def createMatrix(card):
     matrix = np.array([row1, row2])
     return matrix
 
+
+def createMatrix2(card):
+    c = 0
+    list3 = []
+    list4 = []
+    while c<card:
+        list3.append('#')
+        list4.append('#')
+        c+=1
+    row3 = np.array(list3)
+    row4 = np.array(list4)
+    matrix2 = np.array([row3, row4])
+    return matrix2
+
 Board = createMatrix(Cards)
+Board2 = createMatrix2(Cards)
 
 print (Board)
+print (Board2)
