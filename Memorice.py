@@ -1,3 +1,4 @@
+#import numpy as np
 import random
 import numpy as np
 from random import randint, sample
@@ -5,18 +6,19 @@ from random import randint, sample
 
 Cards = int(input("Please insert the amount of cards you wish to play with: "))
 
+Player1 = 0
+Player2 = 0
 
-numbers = range(1,Cards+1)
-b = sample(numbers, k=Cards)
-a = sample(numbers, k=Cards)
-#print (b)
-#print (a)
 
-arr1 = np.array(b)
-arr2 = np.array(a)
+def createMatrix(card):
+    numbers = range(1,card+1)
+    list1 = sample(numbers, k=card)
+    list2 = sample(numbers, k=card)
+    row1 = np.array(list1)
+    row2 = np.array(list2)
+    matrix = np.array([row1, row2])
+    return matrix
 
-#print (arr1)
-#print (arr2)
+Board = createMatrix(Cards)
 
-matrix = np.array([arr1, arr2])
-print (matrix)
+print (Board)
