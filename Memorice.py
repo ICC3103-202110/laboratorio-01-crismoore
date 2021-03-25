@@ -50,12 +50,14 @@ Player2 = 0
 
 
 flag = True
+flag2 = True
 
 while (Player1+Player2<=Cards):
-    value1x = -2
-    value1y = -2
-    value2x = -2
-    value2y = -2
+    value1x = -10
+    value1y = -10
+    value2x = -10
+    value2y = -10
+    cont = 0
     print ("Player 1 make your move ")
     while flag == True:
         i = 0
@@ -63,33 +65,48 @@ while (Player1+Player2<=Cards):
             y = int(input("Please insert coordenate in y between -1 and 0: "))
             if y == 0 or y ==-1:
                 x = int(input("Please insert coordenate in x: "))
+                print (" ")
                 if x>=0 and x<Cards:
-                    if value1x == -2 & value1y == -2:
+                    if flag2 == True:
                         value1x = x
                         value1y = y
                         Board2[y][x] = Board[y][x]
                         number1 = Board[y][x]
+                        print (value1y, value1x)
                         print(Board2)
+                        print(" ")
                         i+=1
-                        
+                        flag2 = False
+                                                
                     else: 
                         value2x = x
                         value2y = y
                         Board2[y][x] = Board[y][x]
                         number2 = Board[y][x]
+                        print (value1y, value1x)
                         print(Board2)
+                        print(" ")
                         i+=1
+                        flag2 = True
           
         if number1 == number2: 
             print ("Nice! You got a point! It's your turn again ")
+            print (" ")
             Player1+=1
             Board2[value1y][value1x] = ' '
             Board2[value2y][value2x] = ' '    
             print (Board2)
+            print (value1y, value1x)
+            print (value2y, value2x)
+            print (" ")
             
         else:
             Board2[value1y][value1x] = '#'
             Board2[value2y][value2x] = '#'
+            print (Board2)
+            print (value1y, value1x)
+            print (value2y, value2x)
+            print (" ")
             flag = False
         
     print ("Player 2 make your move ")
@@ -99,34 +116,55 @@ while (Player1+Player2<=Cards):
             y = int(input("Please insert coordenate in y between -1 and 0: "))
             if y == 0 or y ==-1:
                 x = int(input("Please insert coordenate in x: "))
+                print (" ")
                 if x>=0 and x<Cards:
-                    if value1x == -2 & value1y == -2:
+                    if flag2 == True:
                         value1x = x
                         value1y = y
                         Board2[y][x] = Board[y][x]
                         number1 = Board[y][x]
+                        print (value1y, value1x)
                         print(Board2)
+                        print (" ")
                         i+=1
+                        flag2 = False
                         
                     else: 
                         value2x = x
                         value2y = y
                         Board2[y][x] = Board[y][x]
                         number2 = Board[y][x]
+                        print (value1y, value1x)
                         print(Board2)
+                        print (" ")
                         i+=1
+                        flag2 = True
           
         if number1 == number2: 
             print ("Nice! You got a point! It's your turn again ")
+            print (" ")
             Player1+=1
             Board2[value1y][value1x] = ' '
             Board2[value2y][value2x] = ' '    
+            print (value1y, value1x)
             print (Board2)
+            print (" ")
             
         else:
             Board2[value1y][value1x] = '#'
             Board2[value2y][value2x] = '#'
+            print (value1y, value1x)
+            print (value2y, value2x)
+            print (Board2)
+            print (" ")
             flag = True
+            
+if Player1>Player2:
+    print ("Player 1 is the winner! Congratulations! ")
+elif Player2>Player1:
+    print ("Player 2 is the winner! Congratulations! ")
+else:
+    print ("It's a tie! No one wins XD" )
 
 """
         print("Player 2 make your move: ")
