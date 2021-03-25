@@ -52,11 +52,11 @@ Player2 = 0
 flag = True
 flag2 = True
 
-while (Player1+Player2<=Cards):
-    value1x = -10
-    value1y = -10
-    value2x = -10
-    value2y = -10
+while (Player1+Player2<Cards):
+    value1x = 0
+    value1y = 0
+    value2x = 0
+    value2y = 0
     cont = 0
     print ("Player 1 make your move ")
     while flag == True:
@@ -143,7 +143,7 @@ while (Player1+Player2<=Cards):
         if number1 == number2: 
             print ("Nice! You got a point! It's your turn again ")
             print (" ")
-            Player1+=1
+            Player2+=1
             Board2[value1y][value1x] = ' '
             Board2[value2y][value2x] = ' '    
             print (value1y, value1x)
