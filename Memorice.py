@@ -1,16 +1,16 @@
 import numpy as np
 from random import sample
 
-def createMatrix(card):
+def Board_showing_all_cards(card):
     numbers = range(1,card+1)
-    list1 = sample(numbers, k=card)
-    list2 = sample(numbers, k=card)
-    row1 = np.array(list1)
-    row2 = np.array(list2)
-    matrix = np.array([row1, row2])
-    return matrix
+    list_random_numbers = sample(numbers, k=card)
+    list_random_numbers2 = sample(numbers, k=card)
+    row1 = np.array(list_random_numbers)
+    row2 = np.array(list_random_numbers2)
+    board = np.array([row1, row2])
+    return board
 
-def createMatrix2(card):
+def Board_cards_facing_down(card):
     c = 0
     list3 = []
     list4 = []
@@ -20,32 +20,28 @@ def createMatrix2(card):
         c+=1
     row3 = np.array(list3)
     row4 = np.array(list4)
-    matrix2 = np.array([row3, row4])
-    return matrix2
+    board = np.array([row3, row4])
+    return board
 
-Cards = int(input("Please insert the amount of pairs of cards you wish to play with: "))
-Board = createMatrix(Cards)
-Board2 = createMatrix2(Cards)
-print (" ")
-print (Board)
-print (" ")
-print (Board2)
-print (" ")
-print ("The origin coordenate of the board is on the top left corner ")
-print (" ")
-Player1 = 0
-Player2 = 0
-
+print ("\nWelcome to the Memorice game made by Cristobal Moore")
+Amount_of_cards = int(input("Please insert the amount of pairs of cards you wish to play with: "))
+Board = Board_showing_all_cards(Amount_of_cards)
+Board_facing_down = Board_cards_facing_down(Amount_of_cards)
+#print (Board,"\n")
+print ("\n",Board_facing_down,"\n")
+print ("The origin coordenate of the board is on the top left corner \n")
+Points_Player1 = 0
+Points_Player2 = 0
 flag = True
 flag2 = True
-
-while (Player1+Player2<Cards):
+ 
+while (Points_Player1+Points_Player2<Amount_of_cards):
     value1x = 0
     value1y = 0
     value2x = 0
     value2y = 0
     while flag == True:
-        if (Player1+Player2 == Cards):
+        if (Points_Player1+Points_Player2 == Amount_of_cards):
             break
         else:
             print ("Player 1 make your move ")
@@ -54,47 +50,40 @@ while (Player1+Player2<Cards):
                 y = int(input("Please insert coordenate in y between -1 and 0: "))
                 if y == 0 or y ==-1:
                     x = int(input("Please insert coordenate in x: "))
-                    print (" ")
-                    if x>=0 and x<Cards:
+                    if x>=0 and x<Amount_of_cards:
                         if flag2 == True:
                             value1x = x
                             value1y = y
-                            Board2[y][x] = Board[y][x]
+                            Board_facing_down[y][x] = Board[y][x]
                             number1 = Board[y][x]
-                            print(Board2)
-                            print(" ")
+                            print("\n",Board_facing_down)
                             i+=1
                             flag2 = False
                         else: 
                             value2x = x
                             value2y = y
-                            Board2[y][x] = Board[y][x]
+                            Board_facing_down[y][x] = Board[y][x]
                             number2 = Board[y][x]
-                            print(Board2)
-                            print(" ")
+                            print("\n",Board_facing_down)
                             i+=1
                             flag2 = True
             
             if number1 == number2: 
-                print ("Nice! You got a point! It's your turn again ")
-                print (" ")
-                Player1+=1
-                Board2[value1y][value1x] = ' '
-                Board2[value2y][value2x] = ' '    
-                print (Board2)
-                print (value1y, value1x)
-                print (value2y, value2x)
-                print (" ")
+                print ("\n Nice! You got a point! It's your turn again \n")
+                Points_Player1+=1
+                Board_facing_down[value1y][value1x] = ' '
+                Board_facing_down[value2y][value2x] = ' '    
+                print (Board_facing_down, "\n")
             
             else:
-                Board2[value1y][value1x] = '#'
-                Board2[value2y][value2x] = '#'
-                print (Board2)
-                print (" ")
+                print ("\n Damn the cards are different, other players turn!")
+                Board_facing_down[value1y][value1x] = '#'
+                Board_facing_down[value2y][value2x] = '#'
+                print ("\n",Board_facing_down,"\n")
                 flag = False
         
     while flag == False:
-        if (Player1+Player2 == Cards):
+        if (Points_Player1+Points_Player2 == Amount_of_cards):
             break
         else:
             print ("Player 2 make your move ")
@@ -103,51 +92,42 @@ while (Player1+Player2<Cards):
                 y = int(input("Please insert coordenate in y between -1 and 0: "))
                 if y == 0 or y ==-1:
                     x = int(input("Please insert coordenate in x: "))
-                    print (" ")
-                    if x>=0 and x<Cards:
+                    if x>=0 and x<Amount_of_cards:
                         if flag2 == True:
                             value1x = x
                             value1y = y
-                            Board2[y][x] = Board[y][x]
+                            Board_facing_down[y][x] = Board[y][x]
                             number1 = Board[y][x]
-                            print(Board2)
-                            print (" ")
+                            print("\n",Board_facing_down)
                             i+=1
                             flag2 = False
                             
                         else: 
                             value2x = x
                             value2y = y
-                            Board2[y][x] = Board[y][x]
+                            Board_facing_down[y][x] = Board[y][x]
                             number2 = Board[y][x]
-                            print(Board2)
-                            print (" ")
+                            print("\n",Board_facing_down)
                             i+=1
                             flag2 = True
             
             if number1 == number2: 
-                print ("Nice! You got a point! It's your turn again ")
-                print (" ")
-                Player2+=1
-                Board2[value1y][value1x] = ' '
-                Board2[value2y][value2x] = ' '    
-                print (Board2)
-                print (" ")
-                
-            elif (Player1+Player2 == Cards):
-                break    
-                
+                print ("\n Nice! You got a point! It's your turn again \n")
+                Points_Player2+=1
+                Board_facing_down[value1y][value1x] = ' '
+                Board_facing_down[value2y][value2x] = ' '    
+                print (Board_facing_down, "\n")
             else:
-                Board2[value1y][value1x] = '#'
-                Board2[value2y][value2x] = '#'
-                print (Board2)
-                print (" ")
+                print ("\n Damn the cards are different, other players turn!")
+                Board_facing_down[value1y][value1x] = '#'
+                Board_facing_down[value2y][value2x] = '#'
+                print ("\n",Board_facing_down,"\n")
                 flag = True
             
-if Player1>Player2:
-    print ("Player 1 is the winner! With", Player1, "points! Congratulations! ")
-elif Player2>Player1:
-    print ("Player 2 is the winner! With", Player2, "points! Congratulations! ")
+if Points_Player1>Points_Player2:
+    print ("Player 1 is the winner! With", Points_Player1, "points! Congratulations! ")
+elif Points_Player2>Points_Player1:
+    print ("Player 2 is the winner! With", Points_Player2, "points! Congratulations! ")
 else:
     print ("It's a tie! No one wins XD" )
 
