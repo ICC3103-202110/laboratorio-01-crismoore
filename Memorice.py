@@ -29,7 +29,7 @@ Board = Board_showing_all_cards(Amount_of_cards)
 Board_facing_down = Board_cards_facing_down(Amount_of_cards)
 #print (Board,"\n")
 print ("\n",Board_facing_down,"\n")
-print ("The origin coordenate of the board is on the top left corner \n")
+print ("The origin coordenate of the board is on the top left corner (0,0) \n")
 Points_Player1 = 0
 Points_Player2 = 0
 flag = True
@@ -119,13 +119,14 @@ while (Points_Player1+Points_Player2<Amount_of_cards):
                 Board_facing_down[coordenate2y][coordenate2x] = '#'
                 print ("\n",Board_facing_down,"\n")
                 flag = True
-                
+
+print ("No more cards left! \n")                
 if Points_Player1>Points_Player2:
     print ("Player 1 is the winner! With", Points_Player1, "points! Congratulations! ")
 elif Points_Player2>Points_Player1:
     print ("Player 2 is the winner! With", Points_Player2, "points! Congratulations! ")
 else:
     print ("It's a tie! No one wins XD" )
-
+print ("\nThank you for playing! I hope you had fun! ")
    
         
