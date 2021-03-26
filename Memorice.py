@@ -34,12 +34,12 @@ Points_Player1 = 0
 Points_Player2 = 0
 flag = True
 flag2 = True
- 
+
 while (Points_Player1+Points_Player2<Amount_of_cards):
-    value1x = 0
-    value1y = 0
-    value2x = 0
-    value2y = 0
+    coordenate1x = 0
+    coordenate1y = 0
+    coordenate2x = 0
+    coordenate2y = 0
     while flag == True:
         if (Points_Player1+Points_Player2 == Amount_of_cards):
             break
@@ -52,36 +52,34 @@ while (Points_Player1+Points_Player2<Amount_of_cards):
                     x = int(input("Please insert coordenate in x: "))
                     if x>=0 and x<Amount_of_cards:
                         if flag2 == True:
-                            value1x = x
-                            value1y = y
+                            coordenate1x = x
+                            coordenate1y = y
                             Board_facing_down[y][x] = Board[y][x]
                             number1 = Board[y][x]
                             print("\n",Board_facing_down)
                             i+=1
                             flag2 = False
                         else: 
-                            value2x = x
-                            value2y = y
+                            coordenate2x = x
+                            coordenate2y = y
                             Board_facing_down[y][x] = Board[y][x]
                             number2 = Board[y][x]
                             print("\n",Board_facing_down)
                             i+=1
                             flag2 = True
-            
             if number1 == number2: 
                 print ("\n Nice! You got a point! It's your turn again \n")
                 Points_Player1+=1
-                Board_facing_down[value1y][value1x] = ' '
-                Board_facing_down[value2y][value2x] = ' '    
+                Board_facing_down[coordenate1y][coordenate1x] = ' '
+                Board_facing_down[coordenate2y][coordenate2x] = ' '    
                 print (Board_facing_down, "\n")
-            
             else:
                 print ("\n Damn the cards are different, other players turn!")
-                Board_facing_down[value1y][value1x] = '#'
-                Board_facing_down[value2y][value2x] = '#'
+                Board_facing_down[coordenate1y][coordenate1x] = '#'
+                Board_facing_down[coordenate2y][coordenate2x] = '#'
                 print ("\n",Board_facing_down,"\n")
                 flag = False
-        
+                
     while flag == False:
         if (Points_Player1+Points_Player2 == Amount_of_cards):
             break
@@ -94,36 +92,34 @@ while (Points_Player1+Points_Player2<Amount_of_cards):
                     x = int(input("Please insert coordenate in x: "))
                     if x>=0 and x<Amount_of_cards:
                         if flag2 == True:
-                            value1x = x
-                            value1y = y
+                            coordenate1x = x
+                            coordenate1y = y
                             Board_facing_down[y][x] = Board[y][x]
                             number1 = Board[y][x]
                             print("\n",Board_facing_down)
                             i+=1
-                            flag2 = False
-                            
+                            flag2 = False  
                         else: 
-                            value2x = x
-                            value2y = y
+                            coordenate2x = x
+                            coordenate2y = y
                             Board_facing_down[y][x] = Board[y][x]
                             number2 = Board[y][x]
                             print("\n",Board_facing_down)
                             i+=1
                             flag2 = True
-            
             if number1 == number2: 
                 print ("\n Nice! You got a point! It's your turn again \n")
                 Points_Player2+=1
-                Board_facing_down[value1y][value1x] = ' '
-                Board_facing_down[value2y][value2x] = ' '    
+                Board_facing_down[coordenate1y][coordenate1x] = ' '
+                Board_facing_down[coordenate2y][coordenate2x] = ' '    
                 print (Board_facing_down, "\n")
             else:
                 print ("\n Damn the cards are different, other players turn!")
-                Board_facing_down[value1y][value1x] = '#'
-                Board_facing_down[value2y][value2x] = '#'
+                Board_facing_down[coordenate1y][coordenate1x] = '#'
+                Board_facing_down[coordenate2y][coordenate2x] = '#'
                 print ("\n",Board_facing_down,"\n")
                 flag = True
-            
+                
 if Points_Player1>Points_Player2:
     print ("Player 1 is the winner! With", Points_Player1, "points! Congratulations! ")
 elif Points_Player2>Points_Player1:
