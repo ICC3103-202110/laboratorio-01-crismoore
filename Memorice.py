@@ -1,7 +1,5 @@
-#import numpy as np
-import random
 import numpy as np
-from random import randint, sample
+from random import sample
 
 def createMatrix(card):
     numbers = range(1,card+1)
@@ -63,7 +61,6 @@ while (Player1+Player2<Cards):
                             value1y = y
                             Board2[y][x] = Board[y][x]
                             number1 = Board[y][x]
-                            print (value1y, value1x)
                             print(Board2)
                             print(" ")
                             i+=1
@@ -73,7 +70,6 @@ while (Player1+Player2<Cards):
                             value2y = y
                             Board2[y][x] = Board[y][x]
                             number2 = Board[y][x]
-                            print (value1y, value1x)
                             print(Board2)
                             print(" ")
                             i+=1
@@ -94,8 +90,6 @@ while (Player1+Player2<Cards):
                 Board2[value1y][value1x] = '#'
                 Board2[value2y][value2x] = '#'
                 print (Board2)
-                print (value1y, value1x)
-                print (value2y, value2x)
                 print (" ")
                 flag = False
         
@@ -116,7 +110,6 @@ while (Player1+Player2<Cards):
                             value1y = y
                             Board2[y][x] = Board[y][x]
                             number1 = Board[y][x]
-                            print (value1y, value1x)
                             print(Board2)
                             print (" ")
                             i+=1
@@ -127,7 +120,6 @@ while (Player1+Player2<Cards):
                             value2y = y
                             Board2[y][x] = Board[y][x]
                             number2 = Board[y][x]
-                            print (value1y, value1x)
                             print(Board2)
                             print (" ")
                             i+=1
@@ -139,7 +131,6 @@ while (Player1+Player2<Cards):
                 Player2+=1
                 Board2[value1y][value1x] = ' '
                 Board2[value2y][value2x] = ' '    
-                print (value1y, value1x)
                 print (Board2)
                 print (" ")
                 
@@ -149,8 +140,6 @@ while (Player1+Player2<Cards):
             else:
                 Board2[value1y][value1x] = '#'
                 Board2[value2y][value2x] = '#'
-                print (value1y, value1x)
-                print (value2y, value2x)
                 print (Board2)
                 print (" ")
                 flag = True
